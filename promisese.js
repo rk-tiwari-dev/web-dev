@@ -1,19 +1,20 @@
 // promises in js is a way to avoid call back hell by chaining multiple functions together.
 // Example:
-var promise = new Promise(function (resolve, reject) {
-  setTimeout(function () {
-    resolve(1);
-  }, 1000);
-});
-promise
-  .then(function (result) {
-    console.log(result);
-    return result * 2;
-  })
-  .then(function (result) {
-    console.log(result);
-    return result * 2;
+
+const user = {
+  id: 1,
+  name: 'John',
+};
+
+function getUser() {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      resolve(user.id);
+    }, 1000);
   });
+}
+
+
 
 // Output: 1
 //         2
